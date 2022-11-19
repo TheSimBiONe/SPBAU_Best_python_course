@@ -50,8 +50,8 @@ class Test_func():
         self.results.clear()
         for test in self.tests:
             returned = self.func(*test[0])
-            self.results.append((test[0], self.func(*test[0]),
-                                 condition_cheked(test[0], self.func(*test[0]), test[1])))
+            self.results.append((test[0], returned,
+                                 condition_cheked(test[0], returned, test[1])))
 
     def print_result(self):
         '''
@@ -62,7 +62,7 @@ class Test_func():
 
         count = 1
         print('Testing start\n'
-              f'{self.func}\n')
+              f'function: {self.func.__name__}\n')
         for result in self.results:
             if result[2] == 0:
                 print(f'Test {count}: '
