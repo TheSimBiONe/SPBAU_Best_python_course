@@ -59,6 +59,7 @@ def rabin_karp(text, pattern):
 
 
 class RabinKarpTest(unittest.TestCase):
+
     """Тесты для метода Рабина-Карпа"""
 
     def setUp(self):

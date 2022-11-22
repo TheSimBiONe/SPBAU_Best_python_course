@@ -78,18 +78,20 @@ class Test_func():
         print('Testing finished\n')
 
 
-tests = [((1, 0), 1),
-         ((5, 3), 1),
-         ((92, 69), 23),
-         ((108026161, 19637473), 311)]
+if __name__ == '__main__':
+    tests = [((1, 0), 1),
+             ((5, 3), 1),
+             ((92, 69), 23),
+             ((108026161, 19637473), 311)]
 
-euclid_test = Test_func(tests, euclid)
-euclid_test.check()
-euclid_test.print_result()
+    euclid_test = Test_func(tests, euclid)
+    euclid_test.check()
+    euclid_test.print_result()
 
-# Тут я использую фишку класса который написал. Вместо того чтобы записывать коэффициенты в тесты, я
-# проверяю что они удволетворяют условию. Таких коэффициентов бесконенчо много, а какие программа
-# выдаст, я не знаю))
-ext_euclid_test = Test_func(tests, ext_euclid)
-ext_euclid_test.check(lambda x, y, z: x[0] * y[0] + x[1] * y[1] == z == y[2])
-ext_euclid_test.print_result()
+    # Тут я использую фишку класса который написал. Вместо того чтобы записывать коэффициенты в тесты, я
+    # проверяю что они удволетворяют условию. Таких коэффициентов бесконенчо много, а какие программа
+    # выдаст, я не знаю))
+
+    ext_euclid_test = Test_func(tests, ext_euclid)
+    ext_euclid_test.check(lambda x, y, z: x[0] * y[0] + x[1] * y[1] == z == y[2])
+    ext_euclid_test.print_result()
