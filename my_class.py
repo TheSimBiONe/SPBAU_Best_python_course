@@ -201,6 +201,9 @@ class Permutation:
         return Permutation(result)
 
     def __invert__(self):
+        '''
+        :return: Возвращает количество инверсий в перестановке
+        '''
         return self.inversions
 
 
