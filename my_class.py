@@ -24,7 +24,7 @@ def cycle_from_permutation(σ, begin, cycle):
 def merge_sort_with_inversions(A, invert = 0):
     '''
     :param A: Сортируемый список
-    :param invert: Текущее
+    :param invert: Текущее количество инверсий
     :return: Отсортированный список, количество инверсий в исходном списке
     '''
     if len(A) == 1 or len(A) == 0:
@@ -204,7 +204,7 @@ class Permutation:
         return self.inversions
 
 
-# оставлю тут несколько экзепляров на то, чтоб посмотреть как они работают
+# оставлю тут несколько экзепляров для того, чтобы посмотреть, как они работают
 if __name__ == '__main__':
     a = Permutation([4, 3, 1, 2, 6, 7, 5])
     b = Permutation([3, 2, 4, 5, 1])
