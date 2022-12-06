@@ -1,6 +1,9 @@
 # Далее под перестановкой я имею ввиду сокращённою табличную запись перестановки
 # А под элементом симметрической группы - собственно перестановку
 
+# P.S. Алгоритм сортировки слиянием был нагло украден с википедии и доработан мною для моих целей
+# Как оказалось ей хорошо решается поиск инверсий
+
 
 def cycle_from_permutation(σ, begin, cycle):
     '''
@@ -18,6 +21,42 @@ def cycle_from_permutation(σ, begin, cycle):
     return cycle
 
 
+def merge_sort_with_inversions(A, invert = 0):
+    '''
+    :param A: Сортируемый список
+    :param invert: Текущее
+    :return: Отсортированный список, количество инверсий в исходном списке
+    '''
+    if len(A) == 1 or len(A) == 0:
+        return A, invert
+    L, invL = merge_sort_with_inversions(A[:len(A) // 2])
+    R, invR = merge_sort_with_inversions(A[len(A) // 2:])
+    inversions = invL + invR
+    n = m = k = 0
+    C = [0] * (len(L) + len(R))
+    while n < len(L) and m < len(R):
+        if L[n] <= R[m]:
+            C[k] = L[n]
+            n += 1
+        else:
+            inversions += len(L) - n
+            C[k] = R[m]
+            m += 1
+        k += 1
+    while n < len(L):
+        C[k] = L[n]
+        n += 1
+        k += 1
+    while m < len(R):
+        inversions += len(L) - n
+        C[k] = R[m]
+        m += 1
+        k += 1
+    for i in range(len(A)):
+        A[i] = C[i]
+    return A, inversions
+
+
 class Permutation:
     def __init__(self, permutation=[]):
         '''
@@ -32,6 +71,7 @@ class Permutation:
         self.cycles = []  # Разложение перестановки в циклы
         self.permutation = []  # Перестановка
         self.id = False  # С тождестенной перестановкой будем работать подругому
+        self.inversions = 0
 
         try:
             if len(permutation) == 0:
@@ -39,18 +79,20 @@ class Permutation:
 
             elif type(permutation[0]) == int:  # Если мы передаём как перестановку, то находим циклы
                 self.permutation = list(permutation)
-                self.solve_cycles()
-                self.id = self.is_id()
+                self._solve_cycles()
+                self.id = self._is_id()
+                self.inversions = merge_sort_with_inversions(self.permutation)[1]
 
             elif type(permutation[0]) == str:  # Если мы передаём как циклы, то находим перестановку
                 self.cycles = [list(map(int, cycle[:-1].split())) for cycle in permutation[0].split('(')[1:]]
                 self.permutation = [i + 1 for i in range(permutation[-1])]
-                self.solve_permutation()
-                self.id = self.is_id()
+                self._solve_permutation()
+                self.id = self._is_id()
+                self.inversions = merge_sort_with_inversions(self.permutation)[1]
         except IndexError:
             pass
 
-    def solve_cycles(self):
+    def _solve_cycles(self):
         '''
         Находит на основании self.permutation разложение в циклы для self.cycles
         '''
@@ -62,7 +104,7 @@ class Permutation:
             for i in self.cycles[-1]:
                 permutation1.remove(i)  # Удаление элемента, кототрый уже есть в одном из циклов
 
-    def solve_permutation(self):
+    def _solve_permutation(self):
         '''
         Находит на основании self.cycles перестановку для self.permutation
         '''
@@ -91,7 +133,7 @@ class Permutation:
         else:
             print(''.join([f"({' '.join(list(map(str, cycle)))})" for cycle in self.cycles if len(cycle) > 1]))
 
-    def is_id(self):
+    def _is_id(self):
         '''
         :return: True если перестановка тождественная, False если нет. Атрибут self.id хранит
         аналогичное значение.
@@ -158,7 +200,14 @@ class Permutation:
 
         return Permutation(result)
 
+    def __invert__(self):
+        return self.inversions
 
-a = Permutation([4, 3, 1, 2, 6, 7, 5])
-b = Permutation([3, 2, 4, 5, 1])
-c = Permutation([6, 3, 2, 5, 4, 1])
+
+# оставлю тут несколько экзепляров на то, чтоб посмотреть как они работают
+if __name__ == '__main__':
+    a = Permutation([4, 3, 1, 2, 6, 7, 5])
+    b = Permutation([3, 2, 4, 5, 1])
+    c = Permutation([6, 3, 2, 5, 4, 1])
+
+    print(~a)
