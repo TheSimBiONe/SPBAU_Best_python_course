@@ -15,8 +15,8 @@ class Fib_eternal:
 
             self.i += 1
             fib3 = self.fib1 + self.fib2
-            self.fibs1 = self.fib2
-            self.fibs2 = fib3
+            self.fib1 = self.fib2
+            self.fib2 = fib3
             return fib3
 
     def __iter__(self):
