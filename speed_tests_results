@@ -1,0 +1,49 @@
+<class 'pure_python.Fate'> 54276433 1.0148287843000001
+<class 'pure_cython.Fate'> 54276433 0.5292749634
+<class 'pyx_cython.Fate'> 54276433 0.14322855840000007
+<class 'mypy_python.Fate'> 54276433 0.6765936878000002
+
+<class 'pure_python.Fate'> 54276433 0.6948629320999999
+<class 'pure_cython.Fate'> 54276433 0.5260283556
+<class 'pyx_cython.Fate'> 54276433 0.14032718479999992
+<class 'mypy_python.Fate'> 54276433 0.6846619411000001
+
+<class 'pure_python.Fate'> 54276433 0.6950315742
+<class 'pure_cython.Fate'> 54276433 0.5677881355
+<class 'pyx_cython.Fate'> 54276433 0.14490501939999997
+<class 'mypy_python.Fate'> 54276433 0.6901358172000001
+
+<class 'pure_python.Fate'> 54276433 0.694421924
+<class 'pure_cython.Fate'> 54276433 0.5306008140999999
+<class 'pyx_cython.Fate'> 54276433 0.14385418899999997
+<class 'mypy_python.Fate'> 54276433 0.6858504170999998
+
+<class 'pure_python.Fate'> 54276433 0.6867028439
+<class 'pure_cython.Fate'> 54276433 0.5269200411000001
+<class 'pyx_cython.Fate'> 54276433 0.14019369150000002
+<class 'mypy_python.Fate'> 54276433 0.6718742112999999
+
+<class 'pure_python.Fate'> 54276433 0.6892767336
+<class 'pure_cython.Fate'> 54276433 0.5220074445
+<class 'pyx_cython.Fate'> 54276433 0.14307766500000002
+<class 'mypy_python.Fate'> 54276433 0.7136917352000001
+
+<class 'pure_python.Fate'> 54276433 0.7223000553
+<class 'pure_cython.Fate'> 54276433 0.5278685983
+<class 'pyx_cython.Fate'> 54276433 0.14283743350000008
+<class 'mypy_python.Fate'> 54276433 0.6886528241999998
+
+<class 'pure_python.Fate'> 54276433 0.6781962599
+<class 'pure_cython.Fate'> 54276433 0.5204166597000001
+<class 'pyx_cython.Fate'> 54276433 0.14356439419999986
+<class 'mypy_python.Fate'> 54276433 0.6743820643999999
+
+<class 'pure_python.Fate'> 54276433 0.6806189304
+<class 'pure_cython.Fate'> 54276433 0.5258073381
+<class 'pyx_cython.Fate'> 54276433 0.1382404634
+<class 'mypy_python.Fate'> 54276433 0.6707546727
+
+<class 'pure_python.Fate'> 54276433 0.6939760947000001
+<class 'pure_cython.Fate'> 54276433 0.5257207808000001
+<class 'pyx_cython.Fate'> 54276433 0.14076256360000006
+<class 'mypy_python.Fate'> 54276433 0.6678928631
