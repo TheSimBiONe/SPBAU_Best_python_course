@@ -34,7 +34,7 @@ def monte_carlo(func, points, x_limits, y_limits, accuracy=1):
             if a <= y:
                 bottom_right_points += 1
 
-    return top_right_points / points * square - bottom_right_points / points * square
+    return (top_right_points - bottom_right_points) / points * square
 
 
 def parallel_monte_carlo(pool, func, points, x_calc, y_calc, accuracy, tests=10):
