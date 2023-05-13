@@ -1,0 +1,22 @@
+﻿<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <title>Integrate with Monte_Carlo</title>
+  </head>
+  <body bgcolor="#283747">
+    <p><font face="American Typewriter" color="white" size="7">
+      You can calculate any inetegral by the Monte-Carlo method
+      </font>
+    </p>
+    <form action="/" method="POST">
+      <input type="text" value="{{func}}" name="func" title="Функция" style="background: #5d6d7e; color: White;" placeholder="sin(x) (func)"/>
+      <input type="text" value="{{points}}" name="points" title="Количество точек" style="background: #5d6d7e; color: White" placeholder="1000 (number of points)"/>
+      <input type="text" value="{{x_limits}}" name="x_limits" title="Пределы интегрирования" style="background: #5d6d7e; color: White" placeholder="0 2 (Integrate limits)"/>
+      <input type="text" value="{{y_limits}}" name="y_limits" title="Допустимые значения" style="background: #5d6d7e; color: White" placeholder="-1 1 (acceptable values)"/>
+      <input type="submit" value="Calculate" style="background: #5d6d7e; color: White; border-radius: 8px">
+    </form>
+
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
